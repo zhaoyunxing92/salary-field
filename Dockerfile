@@ -1,7 +1,7 @@
 FROM golang:1.17-alpine3.15 AS builder
 WORKDIR /app
 COPY . .
-RUN export GOPROXY=https://proxy.golang.com.cn,direct
+#RUN export GOPROXY=https://proxy.golang.com.cn,direct
 RUN go build -o field app.go
 
 # run
