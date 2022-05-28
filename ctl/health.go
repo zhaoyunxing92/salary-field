@@ -12,16 +12,14 @@ func Health(w http.ResponseWriter, r *http.Request) {
 		name string
 		err  error
 	)
-
+	log.Println("health start")
 	if name, err = os.Hostname(); err != nil {
 		log.Printf("get hostname err:%+v", err)
 		name = "未知"
 	}
-
 	data := map[string]string{}
 	data["msg"] = "ok"
 	data["host"] = name
-
 	if err = json.NewEncoder(w).Encode(data); err != nil {
 		log.Fatal(err)
 	}

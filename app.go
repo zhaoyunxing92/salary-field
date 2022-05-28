@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/health", ctl.Health)
 	http.HandleFunc("/", ctl.Health)
 	http.HandleFunc("/field", ctl.Fields)
 	http.HandleFunc("/field/update", ctl.FieldUpdate)
